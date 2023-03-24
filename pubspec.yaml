@@ -36,7 +36,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   font_awesome_flutter: ^10.4.0
-  lottie: ^2.3.0
+  iconsax: ^0.0.8
 
 dev_dependencies:
   flutter_test:

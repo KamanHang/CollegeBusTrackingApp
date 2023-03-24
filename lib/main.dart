@@ -14,9 +14,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       routes: {
         Routes.loginScreen:((context) => LoginScreen()),
-        Routes.signUpScreen:((context) => SignUp()),
+        Routes.signUpScreen:((context) => SignupScreen()),
         Routes.dashBoard:((context) => DashBoard())
       },
     );

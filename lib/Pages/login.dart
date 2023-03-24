@@ -141,6 +141,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         onTap: () =>
                         setState(() {
                            hide = !hide;
+                            // Icon(Icons.remove_red_eye, color: Colors.black);
                         })
                         ,
                         child: Icon(Icons.remove_red_eye, color: Colors.blue.shade300,)),
@@ -207,13 +208,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   ),
                 ),
-                SizedBox(height: 15,),
+                const SizedBox(height: 15,),
 
                  ElevatedButton(
                   
                   style: ButtonStyle(
-                    backgroundColor:MaterialStatePropertyAll(Colors.blue),
-                    padding: MaterialStatePropertyAll(EdgeInsets.symmetric(horizontal: 30, vertical: 15)),
+                    backgroundColor:const MaterialStatePropertyAll(Colors.blue),
+                    padding: const MaterialStatePropertyAll(EdgeInsets.symmetric(horizontal: 30, vertical: 15)),
                     shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25),))
                     
                   ),
@@ -221,7 +222,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   
                   onPressed: null,
                 
-                 child: Text(
+                 child: const Text(
                   'Log in',
                   style: TextStyle(
                     color: Colors.white,
