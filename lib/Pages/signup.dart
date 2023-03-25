@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../Routes/routes.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconsax/iconsax.dart';
 
 
@@ -95,8 +95,8 @@ class _SignupScreenState extends State<SignupScreen> {
                                   Text('|',
                                   style: TextStyle(
                                     fontSize:23,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey.shade400
+                                    fontWeight: FontWeight.w100,
+                                    color: Colors.grey.shade300
                                   ),
                                   ),
 
@@ -170,8 +170,8 @@ class _SignupScreenState extends State<SignupScreen> {
                                   Text('|',
                                   style: TextStyle(
                                     fontSize:23,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey.shade400
+                                    fontWeight: FontWeight.w100,
+                                    color: Colors.grey.shade300
                                   ),
                                   ),
 
@@ -257,8 +257,8 @@ class _SignupScreenState extends State<SignupScreen> {
                                   Text('|',
                                   style: TextStyle(
                                     fontSize:23,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey.shade400
+                                    fontWeight: FontWeight.w100,
+                                    color: Colors.grey.shade300
                                   ),
                                   ),
 
@@ -342,8 +342,8 @@ class _SignupScreenState extends State<SignupScreen> {
                                   Text('|',
                                   style: TextStyle(
                                     fontSize:23,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey.shade400
+                                    fontWeight: FontWeight.w100,
+                                    color: Colors.grey.shade300
                                   ),
                                   ),
 
@@ -372,7 +372,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   ),
                 ),
-                const SizedBox(height: 15,),
+                const SizedBox(height: 20,),
 
                  ElevatedButton(
                   
@@ -404,7 +404,8 @@ class _SignupScreenState extends State<SignupScreen> {
       
       
       
-      
+            const SizedBox(height: 20,),
+
       
       
       

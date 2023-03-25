@@ -31,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   scale: 5,
                 ),
       
-            const SizedBox(height: 40,),
+            const SizedBox(height: 25,),
       
             const Text(
               'Log in',
@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
       
-            const SizedBox(height: 20,),
+            // const SizedBox(height: 20,),
       
             const SizedBox(height: 20,),
                 const CircleAvatar(
@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   radius: 100.0,
             ),
       
-            const SizedBox(height: 40,),
+            const SizedBox(height: 30,),
       
             Column(
               children: [
@@ -95,8 +95,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   Text('|',
                                   style: TextStyle(
                                     fontSize:23,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey.shade400
+                                    fontWeight: FontWeight.w100,
+                                    color: Colors.grey.shade300
                                   ),
                                   ),
 
@@ -178,8 +178,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   Text('|',
                                   style: TextStyle(
                                     fontSize:23,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey.shade400
+                                    fontWeight: FontWeight.w100,
+                                    color: Colors.grey.shade300
                                   ),
                                   ),
 
@@ -208,7 +208,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   ),
                 ),
-                const SizedBox(height: 15,),
+                const SizedBox(height: 30,),
 
                  ElevatedButton(
                   
@@ -220,7 +220,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   
                   
-                  onPressed: null,
+                  onPressed: (){
+      
+                    Navigator.pushNamed(context, Routes.dashBoard);
+                  },
                 
                  child: const Text(
                   'Log in',
@@ -239,7 +242,8 @@ class _LoginScreenState extends State<LoginScreen> {
       
       
       
-      
+            const SizedBox(height: 20,),
+
       
       
       
