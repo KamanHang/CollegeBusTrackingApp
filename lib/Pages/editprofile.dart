@@ -1,50 +1,44 @@
 import 'package:flutter/material.dart';
 import '../Routes/routes.dart';
 import 'package:page_transition/page_transition.dart';
-// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconsax/iconsax.dart';
 
-import 'login.dart';
-
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+class EditProfile extends StatefulWidget {
+  const EditProfile({super.key});
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  State<EditProfile> createState() => _EditProfileState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
+class _EditProfileState extends State<EditProfile> {
   bool hide = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Log in Screen'),
-      //   centerTitle: true,
-      // ),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Image.asset(
+          'assets/images/college-logo.png',
+          fit: BoxFit.contain,
+          height: 32,
+        ),
+        centerTitle: true,
+      ),
 
       body: SingleChildScrollView(
         child: Column(
           children: [
             const SizedBox(
-              height: 60,
-            ),
-            Image.asset(
-              'assets/images/college-logo.png',
-              scale: 5,
-            ),
-            const SizedBox(
-              height: 25,
+              height: 20,
             ),
             const Text(
-              'Sign Up',
+              'Edit Profile',
               style: TextStyle(
                   color: Colors.blue, fontFamily: 'Poppins', fontSize: 35),
             ),
             const SizedBox(
               height: 20,
             ),
-            
             Column(
               children: [
                 //Username Text Form Field
@@ -109,7 +103,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
 
@@ -409,7 +403,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       ))),
                   onPressed: null,
                   child: const Text(
-                    'Sign up',
+                    'Save',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
@@ -421,19 +415,6 @@ class _SignupScreenState extends State<SignupScreen> {
             const SizedBox(
               height: 20,
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              const Text("Already have an account?"),
-              TextButton(
-                  onPressed: () {
-                    // Navigator.pushNamed(context, Routes.loginScreen);
-                    Navigator.push(
-                        context,
-                        PageTransition(
-                            child: LoginScreen(),
-                            type: PageTransitionType.fade));
-                  },
-                  child: const Text('Log in')),
-            ])
           ],
         ),
       ),
