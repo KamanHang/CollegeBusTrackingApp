@@ -12,6 +12,7 @@ This project is developed by student of Itahari International College as solo pr
 ## Features
 
 - Register/Login using College Email 
+- Edit Personal Details
 - Track down respective College Buses
     - Dharan
     - Biratnagar
