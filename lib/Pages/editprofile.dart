@@ -24,7 +24,6 @@ class _EditProfileState extends State<EditProfile> {
         ),
         centerTitle: true,
       ),
-
       body: SingleChildScrollView(
         child: Column(
           children: [

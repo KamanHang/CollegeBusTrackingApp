@@ -124,7 +124,7 @@ class _ProfileState extends State<Profile> {
                     'Edit Profile',
                     style: TextStyle(color: Colors.white),
                   ))
-            ],
+            ],    
           ),
         ],
       ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iicbus/Pages/dashboard.dart';
 import 'package:iicbus/Pages/login.dart';
 import 'package:iicbus/Pages/signup.dart';
+import 'package:iicbus/bottomNavbar.dart';
 import 'Routes/routes.dart';
 
 void main() {
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
       routes: {
         Routes.loginScreen:((context) => LoginScreen()),
         Routes.signUpScreen:((context) => SignupScreen()),
-        Routes.dashBoard:((context) => DashBoard())
+        Routes.dashBoard:((context) => DashBoard()),
+
       },
     );
   }

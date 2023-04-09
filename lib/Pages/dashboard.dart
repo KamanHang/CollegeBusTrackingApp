@@ -6,23 +6,72 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:floating_navbar/floating_navbar.dart';
 import 'package:iicbus/Pages/editprofile.dart';
 import 'package:iicbus/Pages/login.dart';
+import 'package:geolocator/geolocator.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({super.key});
-
-
 
   @override
   State<DashBoard> createState() => _DashBoardState();
 }
 
 class _DashBoardState extends State<DashBoard> {
+  late double lat;
+  late double long;
+
+  Future<Position?> getCurrentLocation() async {
+    LocationPermission permission = await Geolocator.checkPermission();
+
+    if (permission == LocationPermission.denied ||
+        permission == LocationPermission.deniedForever) {
+      print("Permisson Denied!!");
+      LocationPermission asked = await Geolocator.requestPermission();
+    } else {
+      Position currentPosition = await Geolocator.getCurrentPosition(
+          desiredAccuracy: LocationAccuracy.best);
+
+      lat = currentPosition.latitude;
+      long = currentPosition.longitude;
+
+      print(lat);
+      print(long);
+
+      return await Geolocator.getCurrentPosition();
+    }
+    return null;
+  }
+
+  @override
+  void initState() {
+    getCurrentLocation().then((value) async {
+      print(value!.latitude.toString());
+      print(value.longitude.toString());
+
+      markers.add(Marker(
+          markerId: MarkerId('2'),
+          position: LatLng(value.latitude, value.longitude),
+          infoWindow: InfoWindow(title: 'My Current Location')));
+
+      CameraPosition _kGooglePlex = CameraPosition(
+        target: LatLng(26.6646, 87.2718),
+        zoom: 15,
+      );
+    });
+    // TODO: implement initState
+    super.initState();
+  }
+
+  final List<Marker> markers = <Marker>[
+    Marker(
+        markerId: MarkerId('1'),
+        position: LatLng(26.6646, 26.6646),
+        infoWindow: InfoWindow(title: 'Itahari Chowk'))
+  ];
+
   static const CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(26.6646, 87.2718),
     zoom: 15,
   );
-
-    
 
   @override
   Widget build(BuildContext context) {
@@ -228,8 +277,6 @@ class _DashBoardState extends State<DashBoard> {
 
       //     ),
       // ),
-
-      
     );
   }
 }

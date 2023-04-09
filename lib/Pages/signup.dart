@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:iicbus/Pages/dashboard.dart';
 import '../Routes/routes.dart';
 import 'package:page_transition/page_transition.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconsax/iconsax.dart';
-
 import 'login.dart';
+import '../Services/SignUpAuth_service.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -14,6 +15,18 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+  final TextEditingController _userNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  void clearText() {
+    _userNameController.clear();
+    _emailController.clear();
+    _addressController.clear();
+    _passwordController.clear();
+  }
+
   bool hide = true;
   @override
   Widget build(BuildContext context) {
@@ -44,7 +57,6 @@ class _SignupScreenState extends State<SignupScreen> {
             const SizedBox(
               height: 20,
             ),
-            
             Column(
               children: [
                 //Username Text Form Field
@@ -52,6 +64,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: TextFormField(
+                    controller: _userNameController,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
@@ -118,6 +131,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: TextFormField(
+                    controller: _emailController,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
@@ -183,6 +197,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: TextFormField(
+                    controller: _addressController,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
@@ -250,6 +265,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: TextFormField(
+                    controller: _passwordController,
                     obscureText: hide ? true : false,
                     decoration: InputDecoration(
                       filled: true,
@@ -407,7 +423,59 @@ class _SignupScreenState extends State<SignupScreen> {
                       shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25),
                       ))),
-                  onPressed: null,
+                  onPressed: () async {
+                    String? response = await RegisterService.signUp(
+                        username: _userNameController.text,
+                        email: _emailController.text,
+                        address: _addressController.text,
+                        password: _passwordController.text);
+
+                    if (response == "Please fill all the fields") {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            content: Text(
+                              '${response}',
+                              style: TextStyle(color: Colors.redAccent),
+                            ),
+                          );
+                        },
+                      );
+                    } else if(response == "User alredy exists") {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            content: Text(
+                              '${response}',
+                              style: TextStyle(color: Colors.redAccent),
+                            ),
+                          );
+                        },
+                      );
+                      
+                    }
+                    else if (response == "Student Registration Successfully") {
+                      Navigator.push(
+                          context,
+                          PageTransition(
+                              child: const DashBoard(),
+                              type: PageTransitionType.fade));
+                      clearText();
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            content: Text(
+                              '${response}',
+                              style: TextStyle(color: Colors.green),
+                            ),
+                          );
+                        },
+                      );
+                    }
+                  },
                   child: const Text(
                     'Sign up',
                     style: TextStyle(
@@ -425,7 +493,7 @@ class _SignupScreenState extends State<SignupScreen> {
               const Text("Already have an account?"),
               TextButton(
                   onPressed: () {
-                    // Navigator.pushNamed(context, Routes.loginScreen);
+                    Navigator.pushNamed(context, Routes.loginScreen);
                     Navigator.push(
                         context,
                         PageTransition(

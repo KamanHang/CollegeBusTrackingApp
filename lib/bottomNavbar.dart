@@ -22,8 +22,8 @@ class _NavbarState extends State<Navbar> {
   }
 
   final List<Widget> _pages = [
-    DashBoard(),
-    Profile(),
+    const DashBoard(),
+    const EditProfile(),
   ];
 
   @override
@@ -34,7 +34,7 @@ class _NavbarState extends State<Navbar> {
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
           onTap: _navigateBottomBar,
-          items: [
+          items: const [
             BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Map'),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
           ]),

@@ -41,6 +41,8 @@ dependencies:
   page_transition: "^2.0.9"
   google_nav_bar: ^5.0.6
   floating_navbar: ^2.0.2
+  http: ^0.13.5
+  geolocator: ^9.0.2
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +72,7 @@ flutter:
     - assets/images/college-logo.png
     - assets/images/bus.png
     - assets/images/profile.png
+    - assets/gifs/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
