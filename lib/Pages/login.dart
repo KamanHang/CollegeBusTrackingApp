@@ -1,5 +1,6 @@
 import 'dart:async';
-
+import 'package:iicbus/Pages/splashScreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:iicbus/Pages/dashboard.dart';
 import 'package:iicbus/Pages/signup.dart';
@@ -13,10 +14,21 @@ class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<LoginScreen> createState() => LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class LoginScreenState extends State<LoginScreen> {
+
+
+  static const String KEYEMAIL = "email";
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
     var onPressed = false;
   Future loading() async {
     showDialog(
@@ -61,6 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  
 
   bool hide = true;
 
@@ -301,12 +314,20 @@ class _LoginScreenState extends State<LoginScreen> {
                        
                         dialog(response);
                       } else if (response == "Log in Successful") {
-                        onPressed = true;
-                        // await Future.delayed(Duration(seconds: 3));
-                        Navigator.pushReplacementNamed(context, Routes.dashBoard);
+                         loadingScreen();
+                         await Future.delayed(const Duration(seconds: 2));
+                    
+              
+                        Navigator.pushReplacementNamed(context, Routes.bottomNavbar);
  
                         dialog(response);
-                        onPressed = false;
+                        
+
+                        var sharedPref =  await SharedPreferences.getInstance();
+                        sharedPref.setBool(SplashScreenState.KEYLOGIN, true);
+
+                        var prefs = await SharedPreferences.getInstance();
+                        prefs.setString("email", _emailController.text.toString());
                       }
                       else{
                         loadingScreen();
@@ -350,3 +371,5 @@ class _LoginScreenState extends State<LoginScreen> {
   }
   
 }
+
+

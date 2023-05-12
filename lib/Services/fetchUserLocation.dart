@@ -2,16 +2,15 @@ import 'dart:async';
 
 import 'package:http/http.dart' as http;
 
-class LoginStudent {
-  static Future<String?> login({
+class lol {
+  static Future<String?> user({
     required String email,
-    required String password,
   }) async {
     try {
-      var url = Uri.parse('http://192.168.127.198:5000/login');
+      var url = Uri.parse('http://192.168.127.198:5000/fetchStudentdetails');
 
       var response = await http
-          .post(url, body: {'email': email, 'password': password}).timeout(
+          .post(url, body: {'email': email}).timeout(
               const Duration(seconds: 10), onTimeout: () {
         throw TimeoutException('Check Internet Connection');
       });

@@ -43,6 +43,8 @@ dependencies:
   floating_navbar: ^2.0.2
   http: ^0.13.5
   geolocator: ^9.0.2
+  flutter_polyline_points: ^1.0.0
+  shared_preferences: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +74,9 @@ flutter:
     - assets/images/college-logo.png
     - assets/images/bus.png
     - assets/images/profile.png
+    - assets/images/student.png
+    - assets/images/splash.png
+    - assets/images/avatar.png
     - assets/gifs/
 
   # An image asset can refer to one or more resolution-specific "variants", see

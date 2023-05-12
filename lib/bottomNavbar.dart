@@ -13,6 +13,7 @@ class Navbar extends StatefulWidget {
 }
 
 class _NavbarState extends State<Navbar> {
+
   int _selectedIndex = 0;
 
   void _navigateBottomBar(int index) {
@@ -23,19 +24,22 @@ class _NavbarState extends State<Navbar> {
 
   final List<Widget> _pages = [
     const DashBoard(),
-    const EditProfile(),
+    const Profile(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor:Colors.white,
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
           onTap: _navigateBottomBar,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Map'),
+
+            
+
             BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
           ]),
     );

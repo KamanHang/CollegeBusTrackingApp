@@ -442,7 +442,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           );
                         },
                       );
-                    } else if(response == "User alredy exists") {
+                    } else if (response == "User alredy exists") {
                       showDialog(
                         context: context,
                         builder: (context) {
@@ -454,14 +454,11 @@ class _SignupScreenState extends State<SignupScreen> {
                           );
                         },
                       );
-                      
-                    }
-                    else if (response == "Student Registration Successfully") {
-                      Navigator.push(
-                          context,
-                          PageTransition(
-                              child: const DashBoard(),
-                              type: PageTransitionType.fade));
+                    } else if (response ==
+                        "Student Registration Successfully") {
+                      Navigator.pushReplacementNamed(
+                          context, Routes.loginScreen);
+
                       clearText();
                       showDialog(
                         context: context,
