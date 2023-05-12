@@ -361,7 +361,7 @@ class _DashBoardState extends State<DashBoard> {
     if(busLocation != null){
 
       PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
-        "AIzaSyBWaWxe-mTUQ6nozsqNbQcX5yXaalEnUY0",
+        "Your API Key",
         PointLatLng(userLocation.latitude, userLocation.longitude),
         PointLatLng(busLocation.latitude, busLocation.longitude)
       );
