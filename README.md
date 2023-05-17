@@ -7,6 +7,7 @@ College Bus Tracking App is a mobile application developed using Flutter and Nod
 
 
 ## Disclaimer
+This project is made under the permission of Itahari International College. Any unauthroize use, or misuse of the source code may bear consequences. This project is entirely based for learning and educational purpose.
 This project is developed by student of Itahari International College as solo project and is under development and not ready for testing or public use. 
 
 ## Features
